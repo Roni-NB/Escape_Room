@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/about', (req, res) => {
+app.get('/gamelore', (req, res) => {
     res.sendFile(path.join(__dirname, '/game_lore.html'));
 });
 
