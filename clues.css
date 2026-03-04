@@ -1,0 +1,21 @@
+  
+       img {
+        max-width:90%;
+        height: auto;
+    }
+    body {
+    background-image: url('background.png');
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 420px) {
+         img {
+        max-width:70%;
+    }
+}
+
+@media screen and (max-width: 810px) and (min-width: 421px) {
+         img {
+        max-width:80%;
+    }
+}
