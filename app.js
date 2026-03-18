@@ -1,29 +1,30 @@
 const express = require('express');
 const app = express();
+app.set('view engine', 'ejs')
 const path = require('path');
+const ejs = require('ejs');
 const port = 3000;
 app.use (express.static (__dirname))
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/library_entrance.html'));
+app.get('/', (request, response) => {
+  response.render('library_entrance');
+})
+
+app.get('/gamelore', (request, response) => {
+      response.render('game_lore');
 });
 
-
-app.get('/gamelore', (req, res) => {
-    res.sendFile(path.join(__dirname, '/game_lore.html'));
+app.get('/howtoplay', (request, response) => {
+      response.render('how_to_play');
 });
 
-app.get('/howtoplay', (req, res) => {
-    res.sendFile(path.join(__dirname, '/how_to_play.html'));
+app.get('/hauntedlibrary', (request, response) => {
+      response.render('inside_the_library');
 });
 
-app.get('/hauntedlibrary', (req, res) => {
-    res.sendFile(path.join(__dirname, '/inside_the_library.html'));
-});
-
-app.get('/hauntedlibrary/:clues', (req, res) => {
-    const {clues} = req.params
-    res.sendFile(path.join(__dirname, `/${clues}`));
+app.get('/hauntedlibrary/:clues', (request, response) => {
+    const {clues} = request.params
+    response.render(clues);
 });
 
 app.listen(port, () => {
