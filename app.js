@@ -40,7 +40,7 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 //Create
 
-router.get('/save', function (request, response) {
+router.get('/insidecomputer', function (request, response) {
     const newStudent = new StudentModel({
         StudentId: 101, 
         Name: "Sam", Roll: 1, Birthday: 2001 - 09 - 08

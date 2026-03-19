@@ -3,7 +3,7 @@ const emailSchema = new mongoose.Schema({
   email: String,
   subject: String,
   content: String, 
-  date: Boolean
+  date: Date
 })
 export const Email = mongoose.model('Email', emailSchema)
 
