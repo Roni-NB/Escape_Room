@@ -41,12 +41,12 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 //Create
 
 router.get('/insidecomputer', function (request, response) {
-    const newStudent = new StudentModel({
-        StudentId: 101, 
-        Name: "Sam", Roll: 1, Birthday: 2001 - 09 - 08
+    const newEmail = new EmailModel({
+        EmailId: 1, 
+        email: "poop@gmail.com", subject: "poopies", content: "I made huge kakas btw", date: 2001 - 09 - 11
     });
 
-    newStudent.save(function (err, data) {
+    newEmail.save(function (err, data) {
         if (err) {
             console.log(error);
         }
