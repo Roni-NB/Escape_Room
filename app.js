@@ -47,9 +47,7 @@ app.get(“/profile”, isLoggedIn, async function(req, res) {
 //Read
 
 //Update
-app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {
-
-});
+//app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {});
 
 //Delete
 app.post(“/post/delete/:id”, isLoggedIn, async (req, res) => {
