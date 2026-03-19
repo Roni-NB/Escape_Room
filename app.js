@@ -40,7 +40,21 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 //Create
 
-//app.get(“/profile”, isLoggedIn, async function(req, res) {});
+router.get('/save', function (request, response) {
+    const newStudent = new StudentModel({
+        StudentId: 101, 
+        Name: "Sam", Roll: 1, Birthday: 2001 - 09 - 08
+    });
+
+    newStudent.save(function (err, data) {
+        if (err) {
+            console.log(error);
+        }
+        else {
+            res.send("Data inserted");
+        }
+    });
+});
 
 //Read
 
