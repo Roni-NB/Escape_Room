@@ -50,9 +50,7 @@ app.get(“/profile”, isLoggedIn, async function(req, res) {
 //app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {});
 
 //Delete
-app.post(“/post/delete/:id”, isLoggedIn, async (req, res) => {
-
-)};
+//app.post(“/post/delete/:id”, isLoggedIn, async (req, res) => {)};
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
