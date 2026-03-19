@@ -52,7 +52,7 @@ router.post('/insidecomputer', function (request, response) {
             console.log(error);
         }
         else {
-            res.send("Data inserted");
+            response.send("Data inserted");
         }
     });
 });
@@ -64,20 +64,20 @@ router.get('/findall', function (reqest, response) {
             console.log(err); 
         }
         else {
-            res.send(data);
+            response.send(data);
         }
     });
 });
 
 //Update
-router.post('/update', function (req, res) {
-    StudentModel.findByIdAndUpdate(req.body.id,
-        { Name: req.body.Name }, function (err, data) {
+router.post('/update', function (request, response) {
+    EmailModel.findByEmailAndUpdate(req.body.Email,
+        { Email: request.body.Email }, function (err, data) {
             if (err) {
                 console.log(err);
             }
             else {
-                res.send(data);
+                response.send(data);
                 console.log("Data updated!");
             }
         });
