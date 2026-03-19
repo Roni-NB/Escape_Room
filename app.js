@@ -1,11 +1,21 @@
-import 'dotenv/config'
+const dotenv = require('dotenv/config');
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 app.set('view engine', 'ejs')
 const path = require('path');
 const ejs = require('ejs');
+
+// const dns = require('dns');
+// dns.setDefaultResultOrder("ipv4first");
+// dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
+const PORT = process.env.PORT || 3000;
+const DB_URL = process.env.DB_URL;
 app.use (express.static (__dirname))
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(DB_URL)
+  .then(() => console.log('💽 Database connected'))
+  .catch(error => console.error(error))
 
 app.get('/', (request, response) => {
   response.render('library_entrance');
@@ -32,8 +42,8 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
     response.render(clues);
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 
