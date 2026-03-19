@@ -40,11 +40,12 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 //Create
 
-router.get('/insidecomputer', function (request, response) {
-    const newEmail = new EmailModel({
-        EmailId: 1, 
-        email: "poop@gmail.com", subject: "poopies", content: "I made huge kakas btw", date: 2001 - 09 - 11
-    });
+router.post('/insidecomputer', function (request, response) {
+    const newEmail = new EmailModel();
+    newEmail.Email = request.body.Email;
+    newEmail.Subject = request.body.Subject;
+    newEmail.Content = request.body.Content;
+    newEmail.Date = request.body.Date;
 
     newEmail.save(function (err, data) {
         if (err) {
