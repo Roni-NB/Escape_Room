@@ -46,6 +46,7 @@ app.get(“/profile”, isLoggedIn, async function(req, res) {
 
 //Read
 
+//Update
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
