@@ -58,6 +58,16 @@ router.post('/insidecomputer', function (request, response) {
 });
 
 //Read
+router.get('/findall', function (reqest, response) {
+    EmailModel.find(function (err, data) {
+        if (err) {
+            console.log(err); 
+        }
+        else {
+            res.send(data);
+        }
+    });
+});
 
 //Update
 //app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {});
