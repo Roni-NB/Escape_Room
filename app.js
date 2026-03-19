@@ -40,9 +40,7 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 //Create
 
-app.get(“/profile”, isLoggedIn, async function(req, res) {
-
-});
+//app.get(“/profile”, isLoggedIn, async function(req, res) {});
 
 //Read
 
