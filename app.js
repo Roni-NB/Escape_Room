@@ -5,11 +5,7 @@ const app = express();
 app.set('view engine', 'ejs')
 const path = require('path');
 const ejs = require('ejs');
-
-// const dns = require('dns');
-// dns.setDefaultResultOrder("ipv4first");
-// dns.setServers(["8.8.8.8", "1.1.1.1"]);
-
+const User = require('./schema.js')
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 app.use (express.static (__dirname))

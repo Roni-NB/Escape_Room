@@ -5,5 +5,5 @@ const emailSchema = new mongoose.Schema({
   content: String, 
   date: Boolean
 })
-export const email = mongoose.model('Email', emailSchema)
+export const Email = mongoose.model('Email', emailSchema)
 
