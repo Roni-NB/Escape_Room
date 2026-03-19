@@ -52,7 +52,7 @@ router.post('/insidecomputer', function (request, response) {
             console.log(error);
         }
         else {
-            response.send("Data inserted");
+            response.send("Email created.");
         }
     });
 });
