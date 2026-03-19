@@ -70,7 +70,18 @@ router.get('/findall', function (reqest, response) {
 });
 
 //Update
-//app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {});
+router.post('/update', function (req, res) {
+    StudentModel.findByIdAndUpdate(req.body.id,
+        { Name: req.body.Name }, function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.send(data);
+                console.log("Data updated!");
+            }
+        });
+});
 
 //Delete
 router.get('/delete', function (request, response) {
