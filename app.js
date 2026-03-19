@@ -73,7 +73,17 @@ router.get('/findall', function (reqest, response) {
 //app.get(“/post/edit/:id”, isLoggedIn, async (req, res) => {});
 
 //Delete
-//app.post(“/post/delete/:id”, isLoggedIn, async (req, res) => {)};
+router.get('/delete', function (request, response) {
+    StudentModel.remove({ Email: ??? },
+        function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                res.send(data);
+            }
+        });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
