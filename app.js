@@ -40,14 +40,15 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
     response.render(clues);
 });
 
+
 //Create
 
 router.post('/save', function (request, response) {
     const newEmail = new Model();
-    newEmail.Email = request.body.Email;
-    newEmail.Subject = request.body.Subject;
-    newEmail.Content = request.body.Content;
-    newEmail.Date = request.body.Date;
+    newEmail.email = request.body.Email;
+    newEmail.subject = request.body.Subject;
+    newEmail.content = request.body.Content;
+    newEmail.date = request.body.Date;
 
     newEmail.save(function (error, data) {
         if (err) {
