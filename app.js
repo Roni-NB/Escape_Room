@@ -45,7 +45,7 @@ router.post('/insidecomputer', function (request, response) {
     account: 'poop@gmail.com',
     subject: 'poop',
     content: 'pooooooooooooooooooooop',
-    date = 11.09.2001,
+    date: '11.09.2001',
   })
   Email.save()
 
