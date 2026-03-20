@@ -50,13 +50,13 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 router.post('/save', function (request, response) {
     const newEmail = new Model();
-    newEmail.email = request.body.Email;
-    newEmail.subject = request.body.Subject;
-    newEmail.content = request.body.Content;
-    newEmail.date = request.body.Date;
+    newEmail.email = request.body.email;
+    newEmail.subject = request.body.subject;
+    newEmail.content = request.body.content;
+    newEmail.date = request.body.date;
 
     newEmail.save(function (error, data) {
-        if (err) {
+        if (error) {
             console.log(error);
         }
         else {
@@ -79,8 +79,8 @@ router.get('/findall', function (request, response) {
 
 //Update
 router.post('/update', function (request, response) {
-    Model.findByEmailAndUpdate(request.body.Email,
-        { Email: request.body.Email }, function (error, data) {
+    Model.findByEmailAndUpdate(request.body.email,
+        { Email: request.body.email }, function (error, data) {
             if (error) {
                 console.log(error);
             }
