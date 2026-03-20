@@ -41,27 +41,22 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 //Create
 
 router.post('/insidecomputer', function (request, response) {
-    const newEmail = new EmailModel();
-    newEmail.Email = request.body.Email;
-    newEmail.Subject = request.body.Subject;
-    newEmail.Content = request.body.Content;
-    newEmail.Date = request.body.Date;
+    const Email = new Email({
+    account: 'poop@gmail.com',
+    subject: 'poop',
+    content: 'pooooooooooooooooooooop',
+    date = 11.09.2001,
+  })
+  Email.save()
 
-    newEmail.save(function (err, data) {
-        if (err) {
-            console.log(error);
-        }
-        else {
-            response.send("Email created.");
-        }
-    });
+  response.send('Email Created.')
 });
 
 //Read
 router.get('/findall', function (reqest, response) {
-    EmailModel.find(function (err, data) {
-        if (err) {
-            console.log(err); 
+    EmailModel.find(function (error, data) {
+        if (error) {
+            console.log(error); 
         }
         else {
             response.send(data);
@@ -72,9 +67,9 @@ router.get('/findall', function (reqest, response) {
 //Update
 router.post('/update', function (request, response) {
     EmailModel.findByEmailAndUpdate(req.body.Email,
-        { Email: request.body.Email }, function (err, data) {
-            if (err) {
-                console.log(err);
+        { Email: request.body.Email }, function (error, data) {
+            if (error) {
+                console.log(error);
             }
             else {
                 response.send(data);
@@ -85,10 +80,10 @@ router.post('/update', function (request, response) {
 
 //Delete
 router.get('/delete', function (request, response) {
-    StudentModel.remove({ Email: ??? },
-        function (err, data) {
-            if (err) {
-                console.log(err);
+    StudentModel.remove({ Email: 188 },
+        function (error, data) {
+            if (error) {
+                console.log(error);
             }
             else {
                 res.send(data);
