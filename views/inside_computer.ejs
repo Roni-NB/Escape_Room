@@ -22,24 +22,27 @@
 <input type="number" name="date" placeholder="date" required="" min="0" step="1">
 </br>
 <button onclick="saveEmail()">Save</button>
-</center>
 
 </br>
 </br>
-</br>
-</br>
-</br>
-</br>
-
-         <a href="/hauntedlibrary"><img src="../pack.png" alt="back button" width="100" height="100"> </a>
-
+<script>
 <div>
                 <strong>From:</strong> ${email.email}<br>
                 <strong>Subject:</strong> ${email.subject}<br>
                 <strong>Content:</strong> ${email.content}<br>
                 <strong>Date:</strong> ${new Date(email.date).toLocaleDateString()}<br>
-                <button onclick="deleteEmail('${email._id}')">Delete 🗑️</button>
+                <button onclick="deleteEmail('${email._id}')">Delete</button>
             </div>
+</script>
+
+</center>
+
+            </br>
+</br>
+</br>
+
+
+         <a href="/hauntedlibrary"><img src="../pack.png" alt="back button" width="100" height="100"> </a>
 
 </body>
 </html>

@@ -3,3 +3,8 @@ body {background-color: rgb(0, 0, 0);
         font-family: "Press Start 2P", sans-serif;
         font-size: 40px;
 }
+div {
+    color:rgb(2, 234, 6);
+    font-family: "Ariel", sans-serif;
+    font-size: 20px;
+}
