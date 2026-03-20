@@ -10,6 +10,11 @@ const ejs = require('ejs');
 const User = require('./schema.js')
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
+
+// added
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true }));
+
 app.use (express.static (__dirname))
 mongoose.connect(DB_URL)
   .then(() => console.log('💽 Database connected'))
@@ -98,6 +103,9 @@ router.get('/delete', function (request, response) {
             }
         });
 });
+
+//added
+app.use('/api', router);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
