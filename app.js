@@ -1,6 +1,8 @@
 const dotenv = require('dotenv/config');
 const mongoose = require('mongoose');
 const express = require('express');
+const router = express.Router();
+const Model = require('./schema');
 const app = express();
 app.set('view engine', 'ejs')
 const path = require('path');
@@ -40,21 +42,26 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 //Create
 
-router.post('/insidecomputer', function (request, response) {
-    const Email = new Email({
-    account: 'poop@gmail.com',
-    subject: 'poop',
-    content: 'pooooooooooooooooooooop',
-    date: '11.09.2001',
-  })
-  Email.save()
+router.post('/save', function (request, response) {
+    const newEmail = new Model();
+    newEmail.Email = request.body.Email;
+    newEmail.Subject = request.body.Subject;
+    newEmail.Content = request.body.Content;
+    newEmail.Date = request.body.Date;
 
-  response.send('Email Created.')
+    newEmail.save(function (error, data) {
+        if (err) {
+            console.log(error);
+        }
+        else {
+            response.send("Email created.");
+        }
+    });
 });
 
 //Read
-router.get('/findall', function (reqest, response) {
-    EmailModel.find(function (error, data) {
+router.get('/findall', function (request, response) {
+    Model.find(function (error, data) {
         if (error) {
             console.log(error); 
         }
@@ -66,7 +73,7 @@ router.get('/findall', function (reqest, response) {
 
 //Update
 router.post('/update', function (request, response) {
-    EmailModel.findByEmailAndUpdate(req.body.Email,
+    Model.findByEmailAndUpdate(request.body.Email,
         { Email: request.body.Email }, function (error, data) {
             if (error) {
                 console.log(error);
@@ -80,13 +87,13 @@ router.post('/update', function (request, response) {
 
 //Delete
 router.get('/delete', function (request, response) {
-    StudentModel.remove({ Email: 188 },
+    Model.remove({ Email: 188 },
         function (error, data) {
             if (error) {
                 console.log(error);
             }
             else {
-                res.send(data);
+                resolve.send(data);
             }
         });
 });
