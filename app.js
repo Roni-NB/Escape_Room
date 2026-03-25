@@ -2,18 +2,15 @@ const dotenv = require('dotenv/config');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const Model = require('./schema');
+const Model = require('./model/schema.js');
 const app = express();
 const path = require('path');
 const ejs = require('ejs');
-const User = require('./schema.js')
+const User = require('./model/schema.js')
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
-
-// added
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-
 app.use (express.static (__dirname))
 app.set('view engine', 'ejs')
 
@@ -51,6 +48,15 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 // //Create
 
+app.post('./insidecomputer', (request, response) => {
+      const formData = request.bodynew Email({
+            email: formData.email
+            subject: formData.subject
+            content: formData.content
+            date: formData.date
+      }).save()
+      response.redirect('/')
+})
 // router.post('/save', function (request, response) {
 //     const newEmail = new Model();
 //     newEmail.email = request.body.email;
