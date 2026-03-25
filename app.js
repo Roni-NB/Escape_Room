@@ -79,32 +79,30 @@ app.get('/insidecomputer', async (request, response) => {
 
 
 //Update
-app.post('/update', function (request, response) {
-    Model.findByEmailAndUpdate(request.body.email,
-        { Email: request.body.email }, function (error, data) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                response.send(data);
-                console.log("Data updated!");
-            }
-        });
-});
+app.post('/insidecomputer/:slug', async (request, response) => {
+  try {
+    const Email = await Email.findOneAndUpdate(
+      { slug: request.params.slug }, 
+      request.body
+    )
+    
+    // todo
+  }catch (error) {
+    console.error(error)
+  }
+})
 
 //Delete
-app.get('/delete', function (request, response) {
-    Model.remove({ Email: 188 },
-        function (error, data) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                resolve.send(data);
-            }
-        });
-});
+app.get('/insiidecomputer/:slug/delete', async (request, response) => {
+  try {
+    await Email.findOneAndDelete({ slug: request.params.slug })
+    
+    response.redirect('/???')
+  }catch (error) {
+    console.error(error)
+  }
 
+})
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
