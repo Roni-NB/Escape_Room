@@ -29,10 +29,23 @@
         </br>
         </br>
         <p>
-            <%= email %>
+
+      <% emails.forEach(email => { %>
+        <li>
+
+            <%= email.account %>
+            <%= email.subject %>
+            <%= email.content %>
+            <%= email.data %>
+        </li>
+      <% }) %>
         </p>
 
     </center>
+
+            <button>Delete</button>
+            <button>Edit</button>
+
 
     </br>
     </br>
