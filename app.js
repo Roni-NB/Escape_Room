@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 const Model = require('./schema');
 const app = express();
-app.set('view engine', 'ejs')
 const path = require('path');
 const ejs = require('ejs');
 const User = require('./schema.js')
@@ -16,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use (express.static (__dirname))
+app.set('view engine', 'ejs')
+
+
 mongoose.connect(DB_URL)
   .then(() => console.log('Database connected'))
   .catch(error => console.error(error))
@@ -37,7 +39,7 @@ app.get('/hauntedlibrary', (request, response) => {
 });
 
 app.get('/insidecomputer', (request, response) => {
-      response.render('inside_computer');
+      response.render('inside_computer', {output : "output"});
 });
 
 app.get('/hauntedlibrary/:clues', (request, response) => {
@@ -46,67 +48,64 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 });
 
 
-app.get('/insidecomputer', (request, response) => {
-      const output = "blank" 
-      response.render('inside_computer', {output: text})
-//Create
 
-router.post('/save', function (request, response) {
-    const newEmail = new Model();
-    newEmail.email = request.body.email;
-    newEmail.subject = request.body.subject;
-    newEmail.content = request.body.content;
-    newEmail.date = request.body.date;
+// //Create
 
-    newEmail.save(function (error, data) {
-        if (error) {
-            console.log(error);
-        }
-        else {
-            response.send("Email created.");
-        }
-    });
-});
+// router.post('/save', function (request, response) {
+//     const newEmail = new Model();
+//     newEmail.email = request.body.email;
+//     newEmail.subject = request.body.subject;
+//     newEmail.content = request.body.content;
+//     newEmail.date = request.body.date;
 
-//Read
-router.get('/findall', function (request, response) {
-    Model.find(function (error, data) {
-        if (error) {
-            console.log(error); 
-        }
-        else {
-            response.send(data);
-        }
-    });
-});
+//     newEmail.save(function (error, data) {
+//         if (error) {
+//             console.log(error);
+//         }
+//         else {
+//             response.send("Email created.");
+//         }
+//     });
+// });
 
-//Update
-router.post('/update', function (request, response) {
-    Model.findByEmailAndUpdate(request.body.email,
-        { Email: request.body.email }, function (error, data) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                response.send(data);
-                console.log("Data updated!");
-            }
-        });
-});
+// //Read
+// router.get('/findall', function (request, response) {
+//     Model.find(function (error, data) {
+//         if (error) {
+//             console.log(error); 
+//         }
+//         else {
+//             response.send(data);
+//         }
+//     });
+// });
 
-//Delete
-router.get('/delete', function (request, response) {
-    Model.remove({ Email: 188 },
-        function (error, data) {
-            if (error) {
-                console.log(error);
-            }
-            else {
-                resolve.send(data);
-            }
-        });
-});
-});
+// //Update
+// router.post('/update', function (request, response) {
+//     Model.findByEmailAndUpdate(request.body.email,
+//         { Email: request.body.email }, function (error, data) {
+//             if (error) {
+//                 console.log(error);
+//             }
+//             else {
+//                 response.send(data);
+//                 console.log("Data updated!");
+//             }
+//         });
+// });
+
+// //Delete
+// router.get('/delete', function (request, response) {
+//     Model.remove({ Email: 188 },
+//         function (error, data) {
+//             if (error) {
+//                 console.log(error);
+//             }
+//             else {
+//                 resolve.send(data);
+//             }
+//         });
+// });
 
 //added
 app.use('/api', router);
