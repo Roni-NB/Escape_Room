@@ -1,9 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
+// import mongoose from "mongoose";
 const emailSchema = new mongoose.Schema({
-  account: String,
-  subject: String,
-  content: String, 
-  date: Date
+  account: {type: String},
+  subject: {type: String},
+  content: {type: String}, 
+  date: {type: String}
 })
-export const Email = mongoose.model('Email', emailSchema)
-
+const Email = mongoose.model('Email', emailSchema)
+module.exports = Email

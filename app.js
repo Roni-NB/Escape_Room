@@ -2,7 +2,7 @@ const dotenv = require('dotenv/config');
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const Model = require('./model/schema.js');
+const Email = require('./model/schema.js');
 const app = express();
 const path = require('path');
 const ejs = require('ejs');
@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DB_URL;
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
-app.use (express.static (__dirname))
+app.use (express.static ('public'))
 app.set('view engine', 'ejs')
 
 
@@ -58,21 +58,23 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 //       response.redirect('/')
 // })
 
-app.post('/save', function (request, response) {
-    const newEmail = new Model();
-    newEmail.email = request.body.email;
-    newEmail.subject = request.body.subject;
-    newEmail.content = request.body.content;
-    newEmail.date = request.body.date;
+app.post('/save', async (request, response) => {
+   try {
+      const newEmail = new Email({
+      account: request.body.account,
+      subject: request.body.subject,
+      content: request.body.content,
+      date: request.body.date
 
-    newEmail.save(function (error, data) {
-        if (error) {
-            console.log(error);
-        }
-        else {
-            response.send("Email created.");
-        }
-    });
+    })
+    
+    await newEmail.save()
+      
+   } catch (error) {
+      console.log(error);
+
+   } 
+   
 });
 
 //Read
