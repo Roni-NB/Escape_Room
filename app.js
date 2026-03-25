@@ -48,73 +48,71 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 // //Create
 
-app.post('./insidecomputer', (request, response) => {
-      const formData = request.bodynew Email({
-            email: formData.email
-            subject: formData.subject
-            content: formData.content
-            date: formData.date
-      }).save()
-      response.redirect('/')
-})
-// router.post('/save', function (request, response) {
-//     const newEmail = new Model();
-//     newEmail.email = request.body.email;
-//     newEmail.subject = request.body.subject;
-//     newEmail.content = request.body.content;
-//     newEmail.date = request.body.date;
+// app.post('/insidecomputer', (request, response) => {
+//       const formData = request.bodynew Email({
+//             email: formData.email,
+//             subject: formData.subject,
+//             content: formData.content,
+//             date: formData.date
+//       }).save()
+//       response.redirect('/')
+// })
 
-//     newEmail.save(function (error, data) {
-//         if (error) {
-//             console.log(error);
-//         }
-//         else {
-//             response.send("Email created.");
-//         }
-//     });
-// });
+app.post('/save', function (request, response) {
+    const newEmail = new Model();
+    newEmail.email = request.body.email;
+    newEmail.subject = request.body.subject;
+    newEmail.content = request.body.content;
+    newEmail.date = request.body.date;
 
-// //Read
-// router.get('/findall', function (request, response) {
-//     Model.find(function (error, data) {
-//         if (error) {
-//             console.log(error); 
-//         }
-//         else {
-//             response.send(data);
-//         }
-//     });
-// });
+    newEmail.save(function (error, data) {
+        if (error) {
+            console.log(error);
+        }
+        else {
+            response.send("Email created.");
+        }
+    });
+});
 
-// //Update
-// router.post('/update', function (request, response) {
-//     Model.findByEmailAndUpdate(request.body.email,
-//         { Email: request.body.email }, function (error, data) {
-//             if (error) {
-//                 console.log(error);
-//             }
-//             else {
-//                 response.send(data);
-//                 console.log("Data updated!");
-//             }
-//         });
-// });
+//Read
+app.get('/findall', function (request, response) {
+    Model.find(function (error, data) {
+        if (error) {
+            console.log(error); 
+        }
+        else {
+            response.send(data);
+        }
+    });
+});
 
-// //Delete
-// router.get('/delete', function (request, response) {
-//     Model.remove({ Email: 188 },
-//         function (error, data) {
-//             if (error) {
-//                 console.log(error);
-//             }
-//             else {
-//                 resolve.send(data);
-//             }
-//         });
-// });
+//Update
+app.post('/update', function (request, response) {
+    Model.findByEmailAndUpdate(request.body.email,
+        { Email: request.body.email }, function (error, data) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                response.send(data);
+                console.log("Data updated!");
+            }
+        });
+});
 
-//added
-app.use('/api', router);
+//Delete
+app.get('/delete', function (request, response) {
+    Model.remove({ Email: 188 },
+        function (error, data) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                resolve.send(data);
+            }
+        });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
