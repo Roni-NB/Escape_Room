@@ -13,23 +13,14 @@
     <center>
         <h2>Hello Gaia! Send an email.</h2>
 
-      <% emails.forEach(email => { %>
-        <form action="/save" method="POST">
-            </br>
-            <input type="text" id="account" name="account" placeholder=<%= email.account %> required>
-            </br>
-            <input type="text" id="subject" name="subject" placeholder=<%= email.subject %> required>
-            </br>
-            <input type="text" id="content" name="content" placeholder=<%= email.content %> required>
-            </br>
-            <input type="text" id="date" name="date" placeholder=<%= email.data %> required>
-            </br>
-            <button>Edit</button>
-        </form>
-      <% }) %>
 
-        </br>
-        </br>
+    <form action="/emails/<%= email.slug %>" method="POST">
+      <input type="text" value="<%= email.account %>" name="account" placeholder="account" /><br />
+      <input type="text" value="<%= email.subject %>" name="subject" placeholder="subject" /><br />
+      <input type="text" value="<%= email.content %>" name="content" placeholder="content" /><br />
+      <input type="text" value="<%= email.date %>" name="date" placeholder="date" /><br />
+      <button>Edit</button>
+    </form>
 
     </center>
 

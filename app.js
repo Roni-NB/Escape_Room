@@ -83,11 +83,24 @@ app.get('/edit', async (request, response) => {
 });
 
 //Update
-app.post('/insidecomputer/:slug', async (request, response) => {
+app.get('/edit/:slug/edit', async (request, response) => {
   try {
-    const Email = await Email.findOneAndUpdate(
+    const slug = request.params.slug
+    const email = await Email.findOne({ slug: slug }).exec()
+    if(!email) throw new Error('Cookie not found')
+
+    response.render('/edit', { email: emails })
+  }catch(error) {
+    console.error(error)
+  }
+})
+
+app.post('/edit/:slug', async (request, response) => {
+  try {
+    const email = await Email.findOneAndUpdate(
       { slug: request.params.slug }, 
-      request.body
+      request.body,
+      { new: true }
     )
     
     // todo
@@ -96,17 +109,18 @@ app.post('/insidecomputer/:slug', async (request, response) => {
   }
 })
 
+
 //Delete
-app.get('/insiidecomputer/:slug/delete', async (request, response) => {
+app.get('/insidecomputer/:slug/delete', async (request, response) => {
   try {
     await Email.findOneAndDelete({ slug: request.params.slug })
     
-    response.redirect('/???')
+    response.redirect('/insidecomputer')
   }catch (error) {
     console.error(error)
   }
-
 })
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
