@@ -49,11 +49,19 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 app.post('/save', async (request, response) => {
    try {
+      const slug = request.body.subject
+      .toLowerCase()
+        .replace(/[^\w\s-]/g, '')  // remove special chars
+        .replace(/\s+/g, '-')       // spaces to dashes
+        .trim()
+      
+
       const newEmail = new Email({
       account: request.body.account,
       subject: request.body.subject,
       content: request.body.content,
-      date: request.body.date
+      date: request.body.date,
+      slug: slug
 
     })
     
@@ -74,22 +82,22 @@ app.get('/insidecomputer', async (request, response) => {
   })
 })
 
-app.get('/edit', async (request, response) => {
-        const emails = await Email.find({}).exec()
-  console.log(emails)
-  response.render('edit', { 
-      emails: emails,
-  })
-});
+// app.get('/edit', async (request, response) => {
+//         const emails = await Email.find({}).exec()
+//   console.log(emails)
+//   response.render('edit', { 
+//       emails: emails,
+//   })
+// });
 
 //Update
 app.get('/edit/:slug/edit', async (request, response) => {
   try {
     const slug = request.params.slug
     const email = await Email.findOne({ slug: slug }).exec()
-    if(!email) throw new Error('Cookie not found')
+    if(!email) throw new Error('Email not found')
 
-    response.render('/edit', { email: emails })
+    response.render('edit', { email: email })
   }catch(error) {
     console.error(error)
   }

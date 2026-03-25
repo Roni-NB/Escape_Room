@@ -14,7 +14,7 @@
         <h2>Hello Gaia! Send an email.</h2>
 
 
-    <form action="/emails/<%= email.slug %>" method="POST">
+    <form action="/edit/<%= email.slug %>" method="POST">
       <input type="text" value="<%= email.account %>" name="account" placeholder="account" /><br />
       <input type="text" value="<%= email.subject %>" name="subject" placeholder="subject" /><br />
       <input type="text" value="<%= email.content %>" name="content" placeholder="content" /><br />
@@ -30,7 +30,7 @@
     </br>
 
 
-    <a href="/hauntedlibrary"><img src="../pack.png" alt="back button" width="100" height="100"> </a>
+    <a href="/insidecomputer"><img src="../pack.png" alt="back button" width="100" height="100"> </a>
 
 
 </body>
