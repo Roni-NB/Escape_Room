@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> The Mystery of The Haunted Library </title>
+    <link rel="stylesheet" href="../incomputer.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P|Source+Code+Pro">
+
+</head>
+
+<body>
+    <center>
+        <h2>Hello Gaia! Send an email.</h2>
+
+      <% emails.forEach(email => { %>
+        <form action="/save" method="POST">
+            </br>
+            <input type="text" id="account" name="account" placeholder=<%= email.account %> required>
+            </br>
+            <input type="text" id="subject" name="subject" placeholder=<%= email.subject %> required>
+            </br>
+            <input type="text" id="content" name="content" placeholder=<%= email.content %> required>
+            </br>
+            <input type="text" id="date" name="date" placeholder=<%= email.data %> required>
+            </br>
+            <button>Edit</button>
+        </form>
+      <% }) %>
+
+        </br>
+        </br>
+
+    </center>
+
+
+    </br>
+    </br>
+    </br>
+
+
+    <a href="/hauntedlibrary"><img src="../pack.png" alt="back button" width="100" height="100"> </a>
+
+
+</body>
+
+</html>

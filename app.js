@@ -35,6 +35,11 @@ app.get('/hauntedlibrary', (request, response) => {
       response.render('inside_the_library');
 });
 
+app.get('/add', (request, response) => {
+      response.render('add');
+});
+
+
 app.get('/hauntedlibrary/:clues', (request, response) => {
     const {clues} = request.params
     response.render(clues);
@@ -68,6 +73,14 @@ app.get('/insidecomputer', async (request, response) => {
       emails: emails,
   })
 })
+
+app.get('/edit', async (request, response) => {
+        const emails = await Email.find({}).exec()
+  console.log(emails)
+  response.render('edit', { 
+      emails: emails,
+  })
+});
 
 //Update
 app.post('/insidecomputer/:slug', async (request, response) => {
