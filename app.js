@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use (express.static (__dirname))
 mongoose.connect(DB_URL)
-  .then(() => console.log('💽 Database connected'))
+  .then(() => console.log('Database connected'))
   .catch(error => console.error(error))
 
 app.get('/', (request, response) => {
@@ -46,6 +46,9 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 });
 
 
+app.get('/insidecomputer', (request, response) => {
+      const output = "blank" 
+      response.render('inside_computer', {output: text})
 //Create
 
 router.post('/save', function (request, response) {
@@ -102,6 +105,7 @@ router.get('/delete', function (request, response) {
                 resolve.send(data);
             }
         });
+});
 });
 
 //added
