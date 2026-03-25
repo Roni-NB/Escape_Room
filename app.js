@@ -46,18 +46,6 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 
 
-// //Create
-
-// app.post('/insidecomputer', (request, response) => {
-//       const formData = request.bodynew Email({
-//             email: formData.email,
-//             subject: formData.subject,
-//             content: formData.content,
-//             date: formData.date
-//       }).save()
-//       response.redirect('/')
-// })
-
 app.post('/save', async (request, response) => {
    try {
       const newEmail = new Email({
@@ -69,7 +57,7 @@ app.post('/save', async (request, response) => {
     })
     
     await newEmail.save()
-      
+
    } catch (error) {
       console.log(error);
 
@@ -77,17 +65,18 @@ app.post('/save', async (request, response) => {
    
 });
 
-//Read
-app.get('/findall', function (request, response) {
-    Model.find(function (error, data) {
-        if (error) {
-            console.log(error); 
-        }
-        else {
-            response.send(data);
-        }
-    });
-});
+app.get('/insidecomputer', async (request, response) => {
+  const Email = await Email.find({}).exec()
+
+  response.render('inside_computer', { 
+      account: account,
+      subject: subject,
+      content: content,
+      date: date
+  })
+})
+
+
 
 //Update
 app.post('/update', function (request, response) {
