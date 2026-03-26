@@ -51,8 +51,8 @@ app.post('/save', async (request, response) => {
    try {
       const slug = request.body.subject
       .toLowerCase()
-        .replace(/[^\w\s-]/g, '')  // remove special chars
-        .replace(/\s+/g, '-')       // spaces to dashes
+        .replace(/[^\w\s-]/g, '')  
+        .replace(/\s+/g, '-')       
         .trim()
       
 
