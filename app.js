@@ -82,15 +82,7 @@ app.get('/insidecomputer', async (request, response) => {
   })
 })
 
-// app.get('/edit', async (request, response) => {
-//         const emails = await Email.find({}).exec()
-//   console.log(emails)
-//   response.render('edit', { 
-//       emails: emails,
-//   })
-// });
 
-//Update
 app.get('/edit/:slug/edit', async (request, response) => {
   try {
     const slug = request.params.slug
