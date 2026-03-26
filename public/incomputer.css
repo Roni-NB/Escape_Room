@@ -10,7 +10,12 @@ div {
 }
 
 p {
-    color:rgb(217, 231, 217);
+    color:rgb(5, 54, 5);
     font-family: "Ariel", sans-serif;
     font-size: 20px;
+    background-color: rgb(217, 231, 217);
+    display: inline-block;
+  width: 300px;
+  padding: 50px;
+  margin: 10px;
 }

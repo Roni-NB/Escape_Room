@@ -11,25 +11,29 @@
 
 <body>
     <center>
-<br>
-<br>
-<br>
-        <p>
+        <h2>Hello Gaia! Send an email.</h2>
 
+<br>
+<p>
       <% emails.forEach(email => { %>
-        <li>
 
             <%= email.account %>
-            <%= email.subject %>
-            <%= email.content %>
             <%= email.date %>
+
+            <br>
+            <br>
+            <%= email.subject %>
+            <br>
+            <br>
+            <%= email.content %>
+            <br>
+            <br>
             <a href="/edit/<%= email.slug %>/edit"><button>Edit</button></a>
             <a href="/insidecomputer/<%= email.slug %>/delete"><button>Delete</button></a>
-        </li>
       <% }) %>
-        </p>
-
-
+      </p>
+<br>
+<br>
             <a href="/add"><button>Add</button></a>
 
         </center>
