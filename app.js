@@ -103,8 +103,8 @@ app.post('/edit/:slug', async (request, response) => {
       { new: true }
     )
     
-    // todo
-  }catch (error) {
+    response.redirect('/insidecomputer')
+    }catch (error) {
     console.error(error)
   }
 
