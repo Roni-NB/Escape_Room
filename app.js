@@ -8,7 +8,7 @@ const path = require('path');
 const ejs = require('ejs');
 const User = require('./model/schema.js')
 const PORT = process.env.PORT || 3000;
-const DB_URL = process.env.DB_URL;
+const DB_URL = process.env.MONGODB_URI;
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true }));
 app.use (express.static ('public'))
