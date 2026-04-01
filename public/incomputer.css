@@ -19,3 +19,30 @@ p {
   padding: 50px;
   margin: 10px;
 }
+
+@media screen and (max-width: 420px) {
+body {
+        font-size: 10px;
+}
+dive {
+  font-size: 8px;
+
+}
+p {
+        font-size: 10px;
+}
+}
+
+@media screen and (max-width: 810px) and (min-width: 421px) {
+body {
+        font-size: 20px;
+
+}
+div {
+  font-size: 10px;
+
+}
+p {
+        font-size: 15px;
+}
+}
