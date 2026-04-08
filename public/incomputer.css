@@ -1,48 +1,46 @@
-body {background-color: rgb(0, 0, 0);
-    color:rgb(2, 234, 6);
-        font-family: "Press Start 2P", sans-serif;
-        font-size: 40px;
+body {
+  background-color: rgb(0, 0, 0);
+  color: rgb(2, 234, 6);
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 40px;
 }
 div {
-    color:rgb(2, 234, 6);
-    font-family: "Ariel", sans-serif;
-    font-size: 20px;
+  color: rgb(2, 234, 6);
+  font-family: "Ariel", sans-serif;
+  font-size: 20px;
 }
 
 p {
-    color:rgb(5, 54, 5);
-    font-family: "Ariel", sans-serif;
-    font-size: 20px;
-    background-color: rgb(217, 231, 217);
-    display: inline-block;
+  color: rgb(5, 54, 5);
+  font-family: "Ariel", sans-serif;
+  font-size: 20px;
+  background-color: rgb(217, 231, 217);
+  display: inline-block;
   width: 700px;
   padding: 50px;
   margin: 10px;
 }
 
 @media screen and (max-width: 420px) {
-body {
-        font-size: 10px;
-}
-dive {
-  font-size: 8px;
-
-}
-p {
-        font-size: 10px;
-}
+  body {
+    font-size: 10px;
+  }
+  dive {
+    font-size: 8px;
+  }
+  p {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 810px) and (min-width: 421px) {
-body {
-        font-size: 20px;
-
-}
-div {
-  font-size: 10px;
-
-}
-p {
-        font-size: 15px;
-}
+  body {
+    font-size: 20px;
+  }
+  div {
+    font-size: 10px;
+  }
+  p {
+    font-size: 15px;
+  }
 }

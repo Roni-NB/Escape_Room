@@ -33,10 +33,10 @@ img {
 }
 
 @media screen and (max-width: 865px) {
-  #library{
-    max-width:50%;
+  #library {
+    max-width: 50%;
   }
-  .container{
+  .container {
     font-size: 7px;
     padding: 30px;
     margin: 0px;
@@ -54,10 +54,10 @@ img {
 }
 
 @media screen and (max-width: 1336px) and (min-width: 866px) {
-  #library{
+  #library {
     max-width: 40%;
   }
-  .container{
+  .container {
     font-size: 10px;
     padding: 10px;
     margin: 0px;
