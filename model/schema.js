@@ -4,7 +4,7 @@ const emailSchema = new mongoose.Schema({
   account: {type: String},
   subject: {type: String},
   content: {type: String}, 
-  date: {type: String},
+  date: {type: Date},
   slug: {type: String}
 
 })
