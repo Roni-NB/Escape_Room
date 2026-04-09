@@ -13,12 +13,11 @@
     <center>
         <h2>Hello Gaia! Send an email.</h2>
 
-
     <form action="/edit/<%= email.slug %>" method="POST">
       <input type="text" value="<%= email.account %>" name="account" placeholder="account" /><br />
       <input type="text" value="<%= email.subject %>" name="subject" placeholder="subject" /><br />
       <input type="text" value="<%= email.content %>" name="content" placeholder="content" /><br />
-      <input type="text" value="<%= email.date %>" name="date" placeholder="date" /><br />
+      <input type="date" value="<%= email.date %>" name="date" placeholder="date" /><br />
       <button>Edit</button>
     </form>
 

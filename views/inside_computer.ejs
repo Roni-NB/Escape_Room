@@ -13,10 +13,11 @@
     <center>
         <h2>Hello Gaia! Send an email.</h2>
 
-<br>
-<p>
-      <% emails.forEach(email => { %>
+        <br>
+        <div id="emails">
 
+        <p>
+            <% emails.forEach(email=> { %>
             <%= email.account %>
             <%= email.date %>
 
@@ -30,19 +31,23 @@
             <%= email.content %>
             <br>
             <br>
-            <a href="/edit/<%= email.slug %>/edit"><button>Edit</button></a>
-            <a href="/insidecomputer/<%= email.slug %>/delete"><button>Delete</button></a>
+            <a href="/email/<%= email.slug %>/edit"><button>Edit</button></a>
+            <form action="/email/<%= email.slug %>/delete" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
             <br>
             ________________________________________________________________
             <br>
             <br>
 
-      <% }) %>
-      </p>
-<br>
-            <a href="/add"><button>Add</button></a>
+            <% }) %>
+        <a href="/add"><button>Add</button></a>
 
-        </center>
+        </p>
+        </div>
+        <br>
+
+    </center>
 
 
 

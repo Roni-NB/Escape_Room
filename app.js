@@ -47,7 +47,7 @@ app.get('/hauntedlibrary/:clues', (request, response) => {
 
 
 
-app.post('/save', async (request, response) => {
+app.post('/email/new', async (request, response) => {
    try {
       const slug = request.body.subject
       .toLowerCase()
@@ -83,7 +83,7 @@ app.get('/insidecomputer', async (request, response) => {
 })
 
 
-app.get('/edit/:slug/edit', async (request, response) => {
+app.get('/email/:slug/edit', async (request, response) => {
   try {
     const slug = request.params.slug
     const email = await Email.findOne({ slug: slug }).exec()
@@ -95,7 +95,7 @@ app.get('/edit/:slug/edit', async (request, response) => {
   }
 })
 
-app.post('/edit/:slug', async (request, response) => {
+app.post('/email/:slug/edit', async (request, response) => {
   try {
     const email = await Email.findOneAndUpdate(
       { slug: request.params.slug }, 
@@ -112,7 +112,7 @@ app.post('/edit/:slug', async (request, response) => {
 
 
 //Delete
-app.get('/insidecomputer/:slug/delete', async (request, response) => {
+app.post('/email/:slug/delete', async (request, response) => {
   try {
     await Email.findOneAndDelete({ slug: request.params.slug })
     

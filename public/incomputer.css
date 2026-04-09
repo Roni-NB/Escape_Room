@@ -15,6 +15,13 @@ p {
   font-family: "Ariel", sans-serif;
   font-size: 20px;
   background-color: rgb(217, 231, 217);
+}
+
+#emails {
+  color: rgb(5, 54, 5);
+  font-family: "Ariel", sans-serif;
+  font-size: 20px;
+  background-color: rgb(217, 231, 217);
   display: inline-block;
   width: 700px;
   padding: 50px;
